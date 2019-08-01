@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Page d'identifiation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="font-size:40px ; text-align:center ; background-color: rgba(50,115,220,0.3)">
+        <div>Page d'identifiation</div>
+        <form name="connexion" method="POST" action="/Mediatheque/SAuthentifier">
+            <label for="identifiant">Identifiant
+                <input type="text" name="identifiant" size="40" />
+            </label>
+            <br>
+            <label for="mdp">Mot de passe
+                <input type="password" name="mdp" size="40" />
+            </label>
+            <input type="submit" value="s'authentifier" />
+        </form>
+    </body>
+</html>
