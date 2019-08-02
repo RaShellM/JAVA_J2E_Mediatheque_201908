@@ -39,21 +39,22 @@ public class SAuthentifier extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+    // pour empécher d'indiquer les mdp par le get ?dans l'url
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(sc.getContextPath()+"/connexion.html"); // pour empécher d'indiquer les mdp par le get ?dans l'url
+        response.sendRedirect(sc.getContextPath()+"/connexion.html"); 
         return;
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession(true); // on récupere une session ou si elle n'existe pas on la crée
         String idSaisi = request.getParameter("identifiant");//champ name de  l'input
         String mdpSaisi = request.getParameter("mdp");
         
         if (idSaisi !=null && mdpSaisi !=null){
-            session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur 
+            session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur avec un attribut ID
             response.sendRedirect(sc.getContextPath()+"/Emprunter");
             return;
         }

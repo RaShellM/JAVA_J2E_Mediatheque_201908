@@ -7,9 +7,6 @@ package com.rachelmartin.mediatheque;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Stream;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrateur
  */
-public class FiltrerCatalogue extends HttpServlet {
-
+public class Deconnecter extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,49 +28,10 @@ public class FiltrerCatalogue extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        //on récupere les attributs du catalogue      
-        Rechercher r = (Rechercher) request.getSession().getAttribute("MaRecherche");
-// Catalogue.get = méthode qui instancie l'array liste et fait l'importe
-// nouvelle array liste de classe media
-        ArrayList<Media> resultatFiltre = Catalogue.get();
-
-        // on ajoute les résultats de notre recherche dans une nouvelle ArrayList  
-        if (r.getTitre().trim().length() != 0) { // faire la recherche par titre seulement si l'auteur n'est pas renseigné
-            ArrayList<Media> filtreSurTitreDansCatalogue = new ArrayList<Media>();
-            for (Media x : resultatFiltre) {
-                if (x.getTitre().trim().equalsIgnoreCase(r.getTitre().trim())) {
-                    filtreSurTitreDansCatalogue.add(x);
-                }
-            }
-            resultatFiltre = filtreSurTitreDansCatalogue;
-        }
-
-        if (r.getAuteur().trim().length() != 0) { // faire la recherche par auteur seulement si l'auteur n'est pas renseigné
-            ArrayList<Media> filtreSurAuteurDansCatalogue = new ArrayList<Media>();
-            for (Media x : resultatFiltre) {
-                if (x.getAuteur().trim().equalsIgnoreCase(r.getAuteur().trim())) {
-                    filtreSurAuteurDansCatalogue.add(x);
-                }
-            }
-            resultatFiltre = filtreSurAuteurDansCatalogue;
-        }
-
-// pour afficher le résultat -> la methode Filtrer Catalogue est appelée dans la page resultatRech.jsp (intégration par <jsp:include page="
-        PrintWriter sortie = response.getWriter();
-        //for (Media x : ResultatFiltre){
-        // sortie.println(x.getAuteur()+" "+ x.getTitre() +"<br>");
-        // }
-// le nom de l'attribut qu'on peut récupérer apres sur un jsp par un getAttribute associé au resultat du filtre
-        request.getSession().setAttribute("resultat", resultatFiltre);
-
-        /* response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
- /* out.println(r)
-        }*/
+        request.getSession().invalidate();
+        getServletContext().getRequestDispatcher("/").forward(request, response);
     }
-
+ 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

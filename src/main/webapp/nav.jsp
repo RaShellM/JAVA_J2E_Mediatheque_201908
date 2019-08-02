@@ -2,41 +2,54 @@
 avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig --%>
 
 <nav>
-    <div class="navigation" row>
-        <div class="bouton">
+    <ul class="navigation" row>
+        
+        <li class="bouton">
             <a href="/Mediatheque">
                 <img id="home" src="./img/home.jpg" alt="HOME"/>
             </a>    
-        </div>
-       
-        <div class="bouton">
+        </li>
+
+        <li class="bouton">
             <a  href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=L">
                 Consulter un livre
             </a>
-        </div>
-        <div class="bouton">
+        </li>
+                
+        <li class="bouton">
             <a href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=D">
                 Consulter un dvd
             </a>
-        </div>
-        <div class="bouton">
+        </li>
+                
+        <li class="bouton">
             <a href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=F">
                 Consulter un film
             </a>
-        </div>
-        <div class="bouton">
+        </li>
+                
+        <li class="bouton">
             <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Emprunter">
                 Emprunter
             </a>
-        </div>
-                <div class="bouton">
+        </li>
+                
+        <li class="bouton">
             <a href="<%= getServletConfig().getServletContext().getContextPath()%>/entreeRech.jsp">
                 Rechercher
             </a>
-        </div>
-        <hr style=clear:both;>
+        </li>
+                
+        <li class="bouton">
+            <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Deconnecter">
+                Se deconnecter
+            </a>
+        </li>
 
-    </div>
+    </ul>
+    <!--<hr style=clear:both;>-->
+
+
 
 </nav>
 

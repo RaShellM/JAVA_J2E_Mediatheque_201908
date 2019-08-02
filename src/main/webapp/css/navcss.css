@@ -1,28 +1,38 @@
-
-.bouton a{
-display:block;
-width:150px;
+ul {
+display:inline;
+width:300px;
 line-height:50px;
 text-align:center;
 vertical-align:middle;
 /*background-image:linear-gradient() no-repeat;*/
-background : blue;
+}
+
+li{
+background : white;
 border-radius : 10px;
-color:white;
+font-size:14px;
 text-decoration:none;
 float:left;
 margin:12px;
+padding : 12px;
+color:white;
 }
-.bouton a:hover {
+.li:hover {
 /*background-image:linear-gradient() no-repeat;*/
-background : yellow;
+background : pink;
 color : black;
 }
 
-.navigation{
-    bakground-image:yellow;
+a{
+text-decoration:none;
 }
+a:link{
+text-transform: uppercase;
+}
+.navigation{
+bakground-color:yellow;
+}
+
 #home{
     max-height: 60px;
-    background : yellow;
 }

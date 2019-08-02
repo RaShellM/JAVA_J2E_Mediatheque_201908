@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
  * @author Administrateur
  */
 public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet pour le DoGet et le DoPost de http.
+
     ServletContext sc; // pour afficher le catalogue dès l'entrée, 
 
     @Override
@@ -29,7 +30,8 @@ public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet 
         super.init(config);
         sc = config.getServletContext(); //ca permet à la servlet de communiquer avec son environnement
     }
-        /**
+
+    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -38,14 +40,14 @@ public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet 
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
-        String id = (String)session.getAttribute("id");//ici la valeur de la session va dans id
-        if (id==null){
+        String id = (String) session.getAttribute("id");//ici la valeur de la session va dans id
+        if (id == null) {
             sc.getRequestDispatcher("/connexion.html").forward(request, response); //si l'authentification n'a pas encore eu lieu, on renvoie sur la page connexion.html; dont l'action fait fonctionner le servlet sauthentifier
             return;
         }
+        
         response.setContentType("text/html"); // on pourra générer ca dans le code jsp en entête
         PrintWriter p = response.getWriter();
         p.println("<DOCTYPE html>");
@@ -53,11 +55,11 @@ public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet 
         p.println("<head>");
         p.println("</head>");
         p.println("<body>");
-        p.println("<p>test</p>");
+        p.println("<p>Page pour Emprunter</p>");
         p.println("</body>");
         p.println("</html>");
     }
-   
+
     /**
      * Returns a short description of the servlet.
      *
