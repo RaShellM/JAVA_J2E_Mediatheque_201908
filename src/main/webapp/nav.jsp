@@ -10,7 +10,7 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
         </div>
        
         <div class="bouton">
-            <a  href="/Mediatheque/consulter.jsp?t=L">
+            <a  href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=L">
                 Consulter un livre
             </a>
         </div>
@@ -27,6 +27,11 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
         <div class="bouton">
             <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Emprunter">
                 Emprunter
+            </a>
+        </div>
+                <div class="bouton">
+            <a href="<%= getServletConfig().getServletContext().getContextPath()%>/entreeRech.jsp">
+                Rechercher
             </a>
         </div>
         <hr style=clear:both;>

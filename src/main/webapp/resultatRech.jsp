@@ -50,6 +50,8 @@
             <input type="submit"/>
 </form>
         
+           <jsp:include page="/filtrerCatalogue"/> <!-- appelle la route qui est définie dans le web.xml, dans les servlet
+        -->
         
         
          <%@include file="pied.html" %>

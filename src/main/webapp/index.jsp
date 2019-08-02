@@ -13,16 +13,16 @@
         <title>START index</title>
 
     </head>
-    
-    
+
+
     <body style=text-align: center ; background-color: rgba(50,115,220,0.3);">
-        <%@include file="nav.jsp" %>
-        
-        <h1>Bienvenu sur la page de notre médiathèque</h1>
+          <%@include file="nav.jsp" %>
+
+          <h1>Bienvenu sur la page de notre médiathèque</h1>
 
 
-        <footer>
-            <%@include file="pied.html" %>
-        </footer>
+
+        <%@include file="pied.html" %>
+
     </body>
 </html>

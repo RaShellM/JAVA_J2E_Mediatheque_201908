@@ -19,53 +19,72 @@ poour pouvoir faire fonctionner la méthode Importe()--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consulter.jsp</title>
-        <%@include file="header.jsp" %>
+        <%@include file="./header.jsp" %>
     </head>
+
     <body>
-        <%@include file="nav.jsp" %>
+        <%@include file="./nav.jsp" %>
         <h1>DANS NOTRE BIBLIOTHEQUE, NOUS AVONS</h1>
         <p>Affichage via consulter.jsp, qui appelle la méthode Catalogue.java</p>
 
         <%--*<%Livre a = new Livre("stendhal", "pierre", 45);%><%=a.getTitre()%>--%>
-<%
-                String type = request.getParameter("t");
-                int typeint = 0;
-                if (type == ("L")){
-                    typeint = 1;
-                }
-                if (type.equals("D")){
-                    typeint = 2;
-                }
-                if (type.equals("F")){
-                    typeint = 3;
-                }
-                String titretype;
-                
-                switch (typeint) {
-                    case 1 : %>
-                        
-                        <h2>NOS LIVRES</h2><%
+        <%
+            String type = request.getParameter("t");
+            if (type == null) {
+                response.sendRedirect(getServletConfig().getServletContext().getContextPath() + "/index.jsp");
+                return;
+            }
+
+            //préparation pour le switch, transformation de la variable t en type int. 
+            int typeint = 0;
+            if (type == "L") {
+                typeint = 1;
+             
+            }
+            if (type.equals("D")) {
+                typeint = 2;
+              
+            }
+            if (type.equals("F")) {
+                typeint = 3;
+           
+            }
+            String titretype;
+
+            switch (typeint) {
+                case 1:
+                    titretype = "nos livres";%>
+                    <H2><%= titretype%></H2>
+        <%
                         break;
                     case 2:
-                        titretype = "mes dvd";%>
-                        <%= titretype%>
-                        <h2>NOS DVD</h2><%
+                        titretype = "nos dvd";%>
+                    <h2> <%= titretype%></h2>
+                    <%
                         break;
                     case 3:
-                        titretype = "mes dvd";%>
-                        <%= titretype%>
-                        <h2>NOS FILMS</h2><%
-                    break;
+                        titretype = "mes film";%>
+        <%= titretype%>
+        <h2>NOS FILMS</h2><%
+                        break;
                     default:%>
-                        <a href="
-                        <%= getServletConfig().getServletContext().getContextPath()%>/index.jsp"></a><%
-                        titretype = "inconnu";
-                }
-       %><table><%
-        for (Media x : catalogue) {
-            if (type.equals("L") && (x instanceof Livre)) {//récupéré le paramètre passé dans l'url (L ou D)
-                Livre l = (Livre) x; //continue va interrompre la boucle pour refaire une itération
-%>
+        <a href="
+           <%= getServletConfig().getServletContext().getContextPath()%>/index.jsp"></a><%
+                       titretype = "inconnu";
+               }
+        %><table>
+            <tr>
+                <th>TITRE
+                </th>
+                <th>AUTEUR
+                </th>
+                <th>Duree/Nb page
+                </th>
+            </tr><%
+                for (Media x : catalogue) {
+                    if (type.equals("L") && (x instanceof Livre)) {//récupéré le paramètre passé dans l'url (L ou D)
+                        Livre l = (Livre) x; //continue va interrompre la boucle pour refaire une itération
+            %>
             <tr>
                 <td>
                     <%= l.getTitre()%>
@@ -93,8 +112,10 @@ poour pouvoir faire fonctionner la méthode Importe()--%>
                 </td>
             </tr>
             <%  }
-                  }%>
+                }%>
         </table>
+
+
         <%@include file="pied.html" %>
     </body>
 </html>

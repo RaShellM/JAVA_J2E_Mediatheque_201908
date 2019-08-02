@@ -30,7 +30,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FiltrerCatalogue</servlet-name>
-        <url-pattern>/FiltrerCatalogue</url-pattern>
+        <url-pattern>/filtrerCatalogue</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
