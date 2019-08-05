@@ -5,6 +5,7 @@
  */
 package com.rachelmartin.mediatheque;
 
+import com.rachelmartin.authentification.AuthentifLecteur;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletConfig;
@@ -20,8 +21,7 @@ import javax.servlet.http.HttpSession;
  * @author Administrateur
  */
 public class SAuthentifier extends HttpServlet {
-
-    ServletContext sc;
+   ServletContext sc;
     
     @Override
     public void init(ServletConfig config) throws ServletException { //ici on instancie le sc, variable
@@ -49,20 +49,26 @@ public class SAuthentifier extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         HttpSession session = request.getSession(true); // on récupere une session ou si elle n'existe pas on la crée
         String idSaisi = request.getParameter("identifiant");//champ name de  l'input
         String mdpSaisi = request.getParameter("mdp");
         
+        
         if (idSaisi !=null && mdpSaisi !=null){
+            if (AuthentifLecteur.isLecteur(idSaisi, mdpSaisi)){
             session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur avec un attribut ID
             response.sendRedirect(sc.getContextPath()+"/Emprunter");
             return;
+            }
+            
         }
         else{
             response.sendRedirect(sc.getContextPath()+"/connexion.html");
             return;
         }
-
     }
+        
+
 }
 

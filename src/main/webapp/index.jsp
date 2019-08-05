@@ -10,6 +10,7 @@
 <html>
     <head>
         <%@include file="./header.jsp" %>
+        <!--<meta http-equiv="refresh" content="0;URL=/">-->
         <title>START index</title>
 
     </head>

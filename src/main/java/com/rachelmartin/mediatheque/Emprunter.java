@@ -6,8 +6,13 @@ package com.rachelmartin.mediatheque;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -22,7 +27,7 @@ import javax.servlet.http.HttpSession;
  * @author Administrateur
  */
 public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet pour le DoGet et le DoPost de http.
-
+   
     ServletContext sc; // pour afficher le catalogue dès l'entrée, 
 
     @Override
@@ -55,7 +60,7 @@ public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet 
         p.println("<head>");
         p.println("</head>");
         p.println("<body>");
-        p.println("<p>Page pour Emprunter</p>");
+        p.println("<h1>Page pour Emprunter</h1>");
         p.println("</body>");
         p.println("</html>");
     }

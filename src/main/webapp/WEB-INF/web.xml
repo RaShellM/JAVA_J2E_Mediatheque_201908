@@ -20,6 +20,14 @@
         <servlet-name>Deconnecter</servlet-name>
         <servlet-class>com.rachelmartin.mediatheque.Deconnecter</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PersonneDB</servlet-name>
+        <servlet-class>com.rachelmartin.mediatheque.PersonneDB</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AuthentifLecteur</servlet-name>
+        <servlet-class>com.rachelmartin.authentification.AuthentifLecteur</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Consulter</servlet-name>
         <url-pattern>/Consulter</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>Deconnecter</servlet-name>
         <url-pattern>/Deconnecter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PersonneDB</servlet-name>
+        <url-pattern>/PersonneDB</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthentifLecteur</servlet-name>
+        <url-pattern>/AuthentifLecteur</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
