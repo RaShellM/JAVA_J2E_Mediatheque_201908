@@ -3,7 +3,7 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
 
 <nav>
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <ul>
                 <li class="bouton">
                     <a href="/Mediatheque">
@@ -11,15 +11,27 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     </a>    
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Deconnecter">
-                        Se deconnecter</a>
-                        <br>
-                        <p style="color:black"> Vous êtes connecté en tant que <%=request.getSession().getAttribute("id")%></p>
+                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/SendCsvInBDD">
+                        Se connecter en admin</a>
                 </li>
-                 
             </ul>
         </div>
-        <div class="col-4">
+                        <div class="col-3">
+                        <ul>
+                <li class="bouton">
+                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/connexion.jsp">
+                        Se connecter</a>
+                </li>
+                 <li class="bouton"
+                    style="color:black"> <%=request.getSession().getAttribute("id")%>, Vous êtes connecté
+                </li>
+                <li class="bouton">
+                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Deconnecter">
+                        Se deconnecter</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-3">
             <ul class="navigation">
                 <li class="bouton">
                     <a  href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=L">
@@ -37,7 +49,8 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     </a>
                 </li>
         </div>
-        <div class="col-4">
+        <div class="col-3">
+            <ul>
             <li class="bouton">
                 <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Emprunter">
                     Emprunter
@@ -46,9 +59,10 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
 
             <li class="bouton">
                 <a href="<%= getServletConfig().getServletContext().getContextPath()%>/entreeRech.jsp">
-                    Rechercher
+                   chercher un media
                 </a>
             </li>
+            </ul>
         </div>
        
     </div>

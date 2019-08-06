@@ -64,7 +64,7 @@ public class DVD extends Media {
 
     @Override
     public String toString() {
-        return super.toString() +" : DVD{" +  "duree=" + duree + '}';
+        return super.toString() +" : DVD{" +  "duree=" + duree + "}";
     }
         @Override
     public void enregistre(PrintStream p) {
@@ -74,8 +74,22 @@ public class DVD extends Media {
         sb.append(";");
         sb.append(getAuteur());
         sb.append(";");
-        sb.append(duree);
+        sb.append(getDuree());
         p.println(sb.toString());
+    }
+    
+        @Override // implements de la methode getRequete de Media
+    public String getRequete() {
+        // TODO mettre le nom de la table en paramètre
+       StringBuilder sb = new StringBuilder("INSERT INTO dvd (titre, auteur, duree)");
+       sb.append(" VALUES ('");
+       sb.append(getTitre());
+       sb.append("','");
+       sb.append(getAuteur());
+       sb.append("','");
+       sb.append(duree);
+       sb.append("')");
+       return sb.toString();
     }
 }
 

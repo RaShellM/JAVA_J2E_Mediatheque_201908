@@ -10,7 +10,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.rachelmartin.mediatheque.Media"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%! ArrayList<Media> catalogue = Catalogue.get();%> <%-- on appelle la méthode get de la classe Catalogue.java
+<%! ArrayList<Media> catalogue;%> <%-- on appelle la méthode get de la classe Catalogue.java
 la methode get fait intervenir la méthode importe()
 poour pouvoir faire fonctionner la méthode Importe()--%>
 
@@ -29,6 +29,7 @@ poour pouvoir faire fonctionner la méthode Importe()--%>
 
         <%--*<%Livre a = new Livre("stendhal", "pierre", 45);%><%=a.getTitre()%>--%>
         <%
+            catalogue = Catalogue.get(getServletContext().getRealPath("/data/export.csv)"));
             String type = request.getParameter("t");
             if (type == null) {
                 response.sendRedirect(getServletConfig().getServletContext().getContextPath() + "/index.jsp");

@@ -104,5 +104,7 @@ abstract public class Media {
         return  sb.toString();
     }
  
-    public abstract void enregistre(PrintStream p); 
+    public abstract void enregistre(PrintStream p);
+    
+    public abstract String getRequete();
 }

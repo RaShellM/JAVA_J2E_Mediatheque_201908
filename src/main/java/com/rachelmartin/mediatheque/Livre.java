@@ -76,5 +76,19 @@ private int nbPage;
         sb.append(nbPage);
         p.println(sb.toString());
     }
+
+    @Override // implements de la methode getRequete de Media
+    public String getRequete() {
+        // TODO mettre le nom de la table en paramètre
+       StringBuilder sb = new StringBuilder("INSERT INTO livre (titre, auteur, nbpages)");
+       sb.append(" VALUES ('");
+       sb.append(getTitre());
+       sb.append("','");
+       sb.append(getAuteur());
+       sb.append("','");
+       sb.append(getNbPage());
+       sb.append("')");
+       return sb.toString();
+    }
     
 }

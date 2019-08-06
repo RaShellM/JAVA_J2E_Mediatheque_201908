@@ -32,6 +32,10 @@
         <servlet-name>SInscrire</servlet-name>
         <servlet-class>com.rachelmartin.mediatheque.SInscrire</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendCsvInBDD</servlet-name>
+        <servlet-class>com.rachelmartin.mediatheque.SendCsvInBDD</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Consulter</servlet-name>
         <url-pattern>/Consulter</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>SInscrire</servlet-name>
         <url-pattern>/SInscrire</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendCsvInBDD</servlet-name>
+        <url-pattern>/SendCsvInBDD</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,23 +1,25 @@
 ul {
 display:inline;
 max-width:400px;
-line-height:50px;
 text-align:center;
 vertical-align:middle;
 /*background-image:linear-gradient() no-repeat;*/
 }
-
+.bouton{
+    margin:4px;
+    padding:4px;
+}
 li{
 background : white;
-border-radius : 10px;
-font-size:14px;
+border-radius : 5px;
+font-size:12px;
 text-decoration:none;
 float:left;
-margin:12px;
-padding : 12px;
+margin:0px;
+padding :0,4,0,4px;
 color:white;
 }
-.li:hover {
+li:hover {
 /*background-image:linear-gradient() no-repeat;*/
 background : pink;
 color : black;
@@ -25,6 +27,8 @@ color : black;
 
 a{
 text-decoration:none;
+padding:0px;
+margin:0px;
 }
 a:link{
 text-transform: uppercase;
