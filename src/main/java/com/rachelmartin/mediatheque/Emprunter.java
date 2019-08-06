@@ -9,11 +9,6 @@ package com.rachelmartin.mediatheque;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -49,7 +44,7 @@ public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet 
         HttpSession session = request.getSession(true);
         String id = (String) session.getAttribute("id");//ici la valeur de la session va dans id
         if (id == null) {
-            sc.getRequestDispatcher("/connexion.html").forward(request, response); //si l'authentification n'a pas encore eu lieu, on renvoie sur la page connexion.html; dont l'action fait fonctionner le servlet sauthentifier
+            sc.getRequestDispatcher("/connexion.jsp").forward(request, response); //si l'authentification n'a pas encore eu lieu, on renvoie sur la page connexion.html; dont l'action fait fonctionner le servlet sauthentifier
             return;
         }
         

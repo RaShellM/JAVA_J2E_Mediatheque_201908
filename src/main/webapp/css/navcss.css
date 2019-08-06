@@ -1,6 +1,6 @@
 ul {
 display:inline;
-width:300px;
+max-width:400px;
 line-height:50px;
 text-align:center;
 vertical-align:middle;

@@ -38,7 +38,7 @@ public class ManagerBase {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManagerBase.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            Logger.getLogger(ManagerBase.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerBase.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 

@@ -3,7 +3,7 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
 
 <nav>
     <div class="row">
-        <div class="col">
+        <div class="col-4">
             <ul>
                 <li class="bouton">
                     <a href="/Mediatheque">
@@ -19,7 +19,7 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                  
             </ul>
         </div>
-        <div class="col">
+        <div class="col-4">
             <ul class="navigation">
                 <li class="bouton">
                     <a  href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=L">
@@ -37,7 +37,7 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     </a>
                 </li>
         </div>
-        <div class="col">
+        <div class="col-4">
             <li class="bouton">
                 <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Emprunter">
                     Emprunter

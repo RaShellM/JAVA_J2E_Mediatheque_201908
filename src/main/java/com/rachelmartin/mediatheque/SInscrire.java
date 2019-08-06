@@ -6,6 +6,7 @@
 package com.rachelmartin.mediatheque;
 
 import com.rachelmartin.authentification.AuthentifLecteur;
+import com.rachelmartin.authentification.NouveauLecteur;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletConfig;
@@ -20,15 +21,14 @@ import javax.servlet.http.HttpSession;
  *
  * @author Administrateur
  */
-public class SAuthentifier extends HttpServlet {
-   ServletContext sc;
+public class SInscrire extends HttpServlet {
+ServletContext sc;
     
     @Override
-    public void init(ServletConfig config) throws ServletException { //ici on instancie le servlet Config, variable
+    public void init(ServletConfig config) throws ServletException { //ici on instancie le servlet Context, variable
         super.init(config);
         sc = config.getServletContext();
     }
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,7 +38,8 @@ public class SAuthentifier extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
+    
+ @Override
     // pour empécher d'indiquer les mdp par le get ?dans l'url
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -51,19 +52,19 @@ public class SAuthentifier extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession(true); // on récupere une session ou si elle n'existe pas on la crée
-        String idSaisi = request.getParameter("identifiant");//champ name de  l'input
-        String mdpSaisi = request.getParameter("mdp");
+        
+        String newidSaisi = request.getParameter("newidentifiant");//champ name de  l'input
+        String newmdpSaisi = request.getParameter("newmdp");
+        
 //controle de validité du login et mot de passe
-        if (idSaisi !=null && mdpSaisi !=null){
-            if (AuthentifLecteur.isLecteur(idSaisi, mdpSaisi)){
-            session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur avec un attribut ID
+        if (newidSaisi !=null && newmdpSaisi !=null){
+            NouveauLecteur.ajoutLecteur(newidSaisi, newmdpSaisi);
+            session.setAttribute("id", newidSaisi); // définition de la cession de l'utilisateur avec un attribut ID
             response.sendRedirect(sc.getContextPath()+"/Emprunter");
             return; // met fin au code doPost si le code effectue le if
             }
-        }
         else{
             response.sendRedirect(sc.getContextPath()+"/connexion.html");
         }
     }
 }
-

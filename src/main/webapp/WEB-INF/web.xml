@@ -28,6 +28,10 @@
         <servlet-name>AuthentifLecteur</servlet-name>
         <servlet-class>com.rachelmartin.authentification.AuthentifLecteur</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SInscrire</servlet-name>
+        <servlet-class>com.rachelmartin.mediatheque.SInscrire</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Consulter</servlet-name>
         <url-pattern>/Consulter</url-pattern>
@@ -56,9 +60,16 @@
         <servlet-name>AuthentifLecteur</servlet-name>
         <url-pattern>/AuthentifLecteur</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SInscrire</servlet-name>
+        <url-pattern>/SInscrire</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

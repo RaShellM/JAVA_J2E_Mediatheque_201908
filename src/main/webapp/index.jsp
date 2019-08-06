@@ -16,11 +16,9 @@
     </head>
 
 
-    <body style=text-align: center ; background-color: rgba(50,115,220,0.3);">
+    <body>
           <%@include file="nav.jsp" %>
-
           <h1>Bienvenu sur la page de notre médiathèque</h1>
-
 
 
         <%@include file="pied.html" %>

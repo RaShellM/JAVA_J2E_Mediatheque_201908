@@ -6,43 +6,36 @@
 package com.rachelmartin.authentification;
 
 import com.rachelmartin.basedonnée.ManagerBase;
-import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author Administrateur
  */
-public class AuthentifLecteur {
-
-    public static Boolean isLecteur(String nomTest, String mdpTest) {
+public class NouveauLecteur {
+    
+    public static Boolean ajoutLecteur(String nomNew, String mdpNew) {
         Connection c = ManagerBase.getManagerBase().getConnection();
         try {
             Statement stmt = c.createStatement();
-            String requete = 
-                    "SELECT count(*) "
-                    + "FROM personne "
-                    + "WHERE nom = '" + nomTest + "' AND mdp ='" + mdpTest + "'";
-// resultSet est un tableau
-            ResultSet resultat = stmt.executeQuery(requete);
+            PreparedStatement preparedStatement = c.prepareStatement("INSERT INTO personne (nom, mdp)"
+            +"VALUES(?,?)");
+            //entrez tout le code pour implementer la base
+            preparedStatement.setString(1, nomNew);
+            preparedStatement.setString(2, mdpNew);
+            preparedStatement.executeUpdate();
 
-            if (resultat.next()) {
-                int nb = resultat.getInt(1);
-                return nb == 1;
-            }
-            return false;
         } catch (SQLException ex) {
             Logger.getLogger(ManagerBase.class.getName()).log(Level.SEVERE, null, ex);
 
         }
         return false;
     }
+    
 }
