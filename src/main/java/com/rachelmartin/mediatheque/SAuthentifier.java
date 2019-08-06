@@ -55,6 +55,7 @@ public class SAuthentifier extends HttpServlet {
         String mdpSaisi = request.getParameter("mdp");
 //controle de validité du login et mot de passe
         if (idSaisi !=null && mdpSaisi !=null){
+            //ici on verifie si le nom et mdp existe dans la DB
             if (AuthentifLecteur.isLecteur(idSaisi, mdpSaisi)){
             session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur avec un attribut ID
             response.sendRedirect(sc.getContextPath()+"/Emprunter");

@@ -29,7 +29,7 @@ poour pouvoir faire fonctionner la méthode Importe()--%>
 
         <%--*<%Livre a = new Livre("stendhal", "pierre", 45);%><%=a.getTitre()%>--%>
         <%
-            catalogue = Catalogue.get(getServletContext().getRealPath("/data/export.csv)"));
+            catalogue = Catalogue.get();//ici on appelle la méthode get sans paramètre, donc import de la DB
             String type = request.getParameter("t");
             if (type == null) {
                 response.sendRedirect(getServletConfig().getServletContext().getContextPath() + "/index.jsp");

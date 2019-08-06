@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 package com.rachelmartin.mediatheque;
+import com.rachelmartin.basedonnée.ManagerBase;
 import java.io.PrintStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -78,6 +86,7 @@ private int nbPage;
     }
 
     @Override // implements de la methode getRequete de Media
+    //notre methode pour construire la requete MySQL de UPDATE des data sur la BDD distante
     public String getRequete() {
         // TODO mettre le nom de la table en paramètre
        StringBuilder sb = new StringBuilder("INSERT INTO livre (titre, auteur, nbpages)");
@@ -90,5 +99,25 @@ private int nbPage;
        sb.append("')");
        return sb.toString();
     }
-    
+    public static ArrayList<Media> getAll(){
+      ArrayList<Media> catalogue = new ArrayList();
+    try {
+        Connection c = ManagerBase.getManagerBase().getConnection();
+        Statement st = c.createStatement();
+        String requete = "SELECT titre, auteur, nbpages from Livre";
+        ResultSet reponse = st.executeQuery(requete);
+        while (reponse.next()){
+            
+            try {
+                Livre l = new Livre(reponse.getString("titre"), reponse.getString("auteur"), reponse.getInt("nbpages"));
+                catalogue.add(l);
+            } catch (Exception ex) {
+                Logger.getLogger(Livre.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(Livre.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return catalogue;
+    }
 }

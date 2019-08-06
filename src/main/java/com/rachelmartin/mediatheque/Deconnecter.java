@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Administrateur
  */
 public class Deconnecter extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -28,10 +29,10 @@ public class Deconnecter extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
+        request.getSession().invalidate(); //la fonction qui fait déconnecter de la session
         getServletContext().getRequestDispatcher("/").forward(request, response);
     }
- 
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

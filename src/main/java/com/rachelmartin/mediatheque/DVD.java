@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 package com.rachelmartin.mediatheque;
+import com.rachelmartin.basedonnée.ManagerBase;
 import java.io.PrintStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -90,6 +98,27 @@ public class DVD extends Media {
        sb.append(duree);
        sb.append("')");
        return sb.toString();
+    }
+    public static ArrayList<Media> getAll(){
+      ArrayList<Media> catalogue = new ArrayList();
+    try {
+        Connection c = ManagerBase.getManagerBase().getConnection();
+        Statement st = c.createStatement();
+        String requete = "SELECT titre, auteur, duree from dvd";
+        ResultSet reponse = st.executeQuery(requete);
+        while (reponse.next()){
+            
+            try {
+                DVD d = new DVD(reponse.getString("titre"), reponse.getString("auteur"), reponse.getInt("duree"));
+                catalogue.add(d);
+            } catch (Exception ex) {
+                Logger.getLogger(Livre.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(Livre.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return catalogue;
     }
 }
 
