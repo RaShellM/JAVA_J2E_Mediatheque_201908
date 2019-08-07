@@ -18,6 +18,10 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     <a href="<%= application.getContextPath()%>/consult-media-bdd.jsp">
                         Voir la vue Media dans BDD</a>
                 </li>
+                    <li class="bouton">
+                    <a href="<%= application.getContextPath()%>/personne.jsp">
+                        Voir les Lecteurs et mdp</a>
+                </li>
             </ul>
         </div>
                         <div class="col-3">

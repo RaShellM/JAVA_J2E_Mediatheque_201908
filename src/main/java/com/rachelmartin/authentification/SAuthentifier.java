@@ -21,8 +21,9 @@ import javax.servlet.http.HttpSession;
  * @author Administrateur
  */
 public class SAuthentifier extends HttpServlet {
-   ServletContext sc;
-    
+
+    ServletContext sc;
+
     @Override
     public void init(ServletConfig config) throws ServletException { //ici on instancie le servlet Config, variable
         super.init(config);
@@ -42,29 +43,31 @@ public class SAuthentifier extends HttpServlet {
     // pour empécher d'indiquer les mdp par le get ?dans l'url
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(sc.getContextPath()+"/connexion.jsp"); 
+        response.sendRedirect(sc.getContextPath() + "/connexion.jsp");
         return;
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession(true); // on récupere une session ou si elle n'existe pas on la crée
-        
+
         String idSaisi = request.getParameter("identifiant");//champ name de  l'input
         String mdpSaisi = request.getParameter("mdp");
 //controle de validité du login et mot de passe
-        if (idSaisi !=null && mdpSaisi !=null){
+        if (idSaisi != null && mdpSaisi != null) {
             //ici on verifie si le nom et mdp existe dans la DB
-            if (AuthentifLecteur.isLecteur(idSaisi, mdpSaisi)){
-            session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur avec un attribut ID
-            response.sendRedirect(sc.getContextPath()+"/Emprunter");
-            return; // met fin au code doPost si le code effectue le if
+            if (AuthentifLecteur.isLecteur(idSaisi, mdpSaisi)) {
+                session.setAttribute("id", idSaisi); // définition de la cession de l'utilisateur avec un attribut ID
+                response.sendRedirect(sc.getContextPath() + "/Emprunter");
+                return; // met fin au code doPost si le code effectue le if
+            } 
+            else {
+                //response.sendRedirect(sc.getContextPath()+"/connexion.jsp");
+                this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
             }
-        }
-        else{
-            //response.sendRedirect(sc.getContextPath()+"/connexion.jsp");
+        } else {
             this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
         }
     }
