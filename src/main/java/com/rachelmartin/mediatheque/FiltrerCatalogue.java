@@ -37,7 +37,8 @@ public class FiltrerCatalogue extends HttpServlet {
         Rechercher r = (Rechercher) request.getSession().getAttribute("MaRecherche");
 // Catalogue.get = méthode qui instancie l'array liste et fait l'importe
 // nouvelle array liste de classe media
-        ArrayList<Media> resultatFiltre = Catalogue.get(getServletContext().getRealPath("/data/export.csv)"));//pour donner le nom effectif de l'endroit de stockage du .csv
+//servletcontexte donne l'info sur l'environnement de l'app web 
+      ArrayList<Media> resultatFiltre = Catalogue.get(getServletContext().getRealPath("/data/export.csv)"));//syntaxe de navigation web qui donner le nom effectif de l'endroit de stockage du .csv
 
         // on ajoute les résultats de notre recherche dans une nouvelle ArrayList  
         if (r.getTitre().trim().length() != 0) { // faire la recherche par titre seulement si l'auteur n'est pas renseigné

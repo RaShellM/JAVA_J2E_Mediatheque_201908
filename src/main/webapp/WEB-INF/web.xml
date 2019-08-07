@@ -34,7 +34,7 @@
     </servlet>
     <servlet>
         <servlet-name>SendCsvInBDD</servlet-name>
-        <servlet-class>com.rachelmartin.mediatheque.SendCsvInBDD</servlet-class>
+        <servlet-class>com.rachelmartin.basedonnée.SendCsvInBDD</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Consulter</servlet-name>

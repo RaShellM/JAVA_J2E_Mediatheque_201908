@@ -29,27 +29,23 @@ public class Catalogue {
     
 //methode pour instruire le catalogue depuis fichier csv (fait appel à la méthode importe(param))
     static public ArrayList<Media> get(String nomFichier) { // permet d'initialiser le catalogue s'il n'existe pas. 
-        if (c == null) {
             c = new ArrayList<Media>();
-            Importe(nomFichier);
-        }
+            ImporteDuCSV(nomFichier);
         return c;
     }
     
 //methode pour importer les données de DB dans Catalogue
     static public ArrayList<Media> get() { // permet d'initialiser le catalogue s'il n'existe pas. 
-        if (c == null) {
             c = new ArrayList<Media>();
-            importBDD();
-        }
+            lireBDD();
         return c;
     }
     
 //methode pour importer le fichier .csv et lecture par ligne 
 //pour instancier dans les classes Livre et DVD et créer le ArrayList catalogue
-    static public void Importe(String nomFichier) {
+    static public void ImporteDuCSV(String nomFichier) {
         try {
-            FileInputStream f = new FileInputStream("./data/export.csv"); // racine de tomcat c::/tomcat/bin/data sur une WebApp
+            FileInputStream f = new FileInputStream(nomFichier); // racine de tomcat c::/tomcat/bin/data sur une WebApp
             Scanner sc = new Scanner(f);
             String ligne;
             while (sc.hasNextLine()) {
@@ -103,7 +99,7 @@ public class Catalogue {
         }
     }
     
-    public static void importBDD() {
+    public static void lireBDD() {
         //TODO ecrire les fonctinos getAll dans chaque class media livre et dvd
         c = Livre.getAll();
         c.addAll(DVD.getAll());

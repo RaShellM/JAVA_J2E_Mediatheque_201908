@@ -25,7 +25,7 @@ poour pouvoir faire fonctionner la méthode Importe()--%>
     <body>
         <%@include file="./nav.jsp" %>
         <h1>DANS NOTRE BIBLIOTHEQUE, NOUS AVONS</h1>
-        <p>Affichage via consulter.jsp, qui appelle la méthode Catalogue.java</p>
+            <p>Affichage via consulter.jsp, qui appelle la méthode Catalogue.java</p>
 
         <%--*<%Livre a = new Livre("stendhal", "pierre", 45);%><%=a.getTitre()%>--%>
         <%

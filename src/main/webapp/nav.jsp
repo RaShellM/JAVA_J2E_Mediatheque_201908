@@ -11,7 +11,7 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     </a>    
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/SendCsvInBDD">
+                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/admin.jsp">
                         Se connecter en admin</a>
                 </li>
             </ul>

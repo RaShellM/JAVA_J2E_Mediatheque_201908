@@ -1,0 +1,17 @@
+com\rachelmartin\authentification\AuthentifLecteur.class
+com\rachelmartin\mediatheque\Catalogue.class
+com\rachelmartin\mediatheque\Livre.class
+com\rachelmartin\mediatheque\Consulter.class
+com\rachelmartin\authentification\NouveauLecteur.class
+com\rachelmartin\mediatheque\Media.class
+com\rachelmartin\mediatheque\SAuthentifier.class
+com\rachelmartin\mediatheque\PersonneDB.class
+com\rachelmartin\basedonnée\ManagerBase.class
+com\rachelmartin\mediatheque\Emprunter.class
+com\rachelmartin\mediatheque\DVD.class
+com\rachelmartin\mediatheque\Deconnecter.class
+com\rachelmartin\mediatheque\FiltrerCatalogue.class
+com\rachelmartin\mediatheque\Rechercher$request.class
+com\rachelmartin\mediatheque\SInscrire.class
+com\rachelmartin\basedonnée\SendCsvInBDD.class
+com\rachelmartin\mediatheque\Rechercher.class
