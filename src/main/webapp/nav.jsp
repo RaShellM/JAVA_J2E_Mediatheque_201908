@@ -14,6 +14,10 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     <a href="<%= getServletConfig().getServletContext().getContextPath()%>/admin.jsp">
                         Se connecter en admin</a>
                 </li>
+                <li class="bouton">
+                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/consult-media-bdd.jsp">
+                        Voir la vue Media dans BDD</a>
+                </li>
             </ul>
         </div>
                         <div class="col-3">

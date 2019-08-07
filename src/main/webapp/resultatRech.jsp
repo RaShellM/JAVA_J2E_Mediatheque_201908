@@ -17,8 +17,6 @@
     <body>
         <%@include file="nav.jsp" %>
 
-
-
         <%-- <jsp:setProperty name="MaRecherche" property="auteur" value="Stendhal"/><br>
          <jsp:setProperty name="MaRecherche" property="type" value="L"/>
         value="<%request.getParameter("auteur")%>"--%>
