@@ -43,7 +43,7 @@ ServletContext sc;
     // pour empécher d'indiquer les mdp par le get ?dans l'url
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(sc.getContextPath()+"/connexion.html"); 
+        response.sendRedirect(sc.getContextPath()+"/connexion.jsp"); 
         return;
     }
 
@@ -64,7 +64,7 @@ ServletContext sc;
             return; // met fin au code doPost si le code effectue le if
             }
         else{
-            response.sendRedirect(sc.getContextPath()+"/connexion.html");
+            response.sendRedirect(sc.getContextPath()+"/connexion.jsp");
         }
     }
 }

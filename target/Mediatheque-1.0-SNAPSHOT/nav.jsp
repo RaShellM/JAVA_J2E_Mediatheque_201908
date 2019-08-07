@@ -11,11 +11,11 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     </a>    
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/admin.jsp">
+                    <a href="<%= application.getContextPath()%>/admin.jsp">
                         Se connecter en admin</a>
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/consult-media-bdd.jsp">
+                    <a href="<%= application.getContextPath()%>/consult-media-bdd.jsp">
                         Voir la vue Media dans BDD</a>
                 </li>
             </ul>
@@ -23,14 +23,14 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                         <div class="col-3">
                         <ul>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/connexion.jsp">
+                    <a href="<%= application.getContextPath()%>/connexion.jsp">
                         Se connecter</a>
                 </li>
                  <li class="bouton"
                     style="color:black"> <%=request.getSession().getAttribute("id")%>, Vous êtes connecté
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Deconnecter">
+                    <a href="<%= application.getContextPath()%>/Deconnecter">
                         Se deconnecter</a>
                 </li>
             </ul>
@@ -38,17 +38,17 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
         <div class="col-3">
             <ul class="navigation">
                 <li class="bouton">
-                    <a  href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=L">
+                    <a  href="<%= application.getContextPath()%>/consulter.jsp?t=L">
                         Consulter un livre
                     </a>
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=D">
+                    <a href="<%= application.getContextPath()%>/consulter.jsp?t=D">
                         Consulter un dvd
                     </a>
                 </li>
                 <li class="bouton">
-                    <a href="<%= getServletConfig().getServletContext().getContextPath()%>/consulter.jsp?t=F">
+                    <a href="<%= application.getContextPath()%>/consulter.jsp?t=F">
                         Consulter un film
                     </a>
                 </li>
@@ -56,13 +56,13 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
         <div class="col-3">
             <ul>
             <li class="bouton">
-                <a href="<%= getServletConfig().getServletContext().getContextPath()%>/Emprunter">
+                <a href="<%= application.getContextPath()%>/Emprunter">
                     Emprunter
                 </a>
             </li>
 
             <li class="bouton">
-                <a href="<%= getServletConfig().getServletContext().getContextPath()%>/entreeRech.jsp">
+                <a href="<%= application.getContextPath()%>/entreeRech.jsp">
                    chercher un media
                 </a>
             </li>

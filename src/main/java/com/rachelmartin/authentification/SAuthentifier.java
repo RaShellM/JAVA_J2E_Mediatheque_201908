@@ -42,7 +42,7 @@ public class SAuthentifier extends HttpServlet {
     // pour empécher d'indiquer les mdp par le get ?dans l'url
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(sc.getContextPath()+"/connexion.html"); 
+        response.sendRedirect(sc.getContextPath()+"/connexion.jsp"); 
         return;
     }
 
@@ -51,6 +51,7 @@ public class SAuthentifier extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession(true); // on récupere une session ou si elle n'existe pas on la crée
+        
         String idSaisi = request.getParameter("identifiant");//champ name de  l'input
         String mdpSaisi = request.getParameter("mdp");
 //controle de validité du login et mot de passe
@@ -63,7 +64,8 @@ public class SAuthentifier extends HttpServlet {
             }
         }
         else{
-            response.sendRedirect(sc.getContextPath()+"/connexion.html");
+            //response.sendRedirect(sc.getContextPath()+"/connexion.jsp");
+            this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
         }
     }
 }

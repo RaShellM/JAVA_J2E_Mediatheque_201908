@@ -47,6 +47,9 @@ public class Emprunter extends HttpServlet { // on extend de classe HTTPServlet 
             sc.getRequestDispatcher("/connexion.jsp").forward(request, response); //si l'authentification n'a pas encore eu lieu, on renvoie sur la page connexion.html; dont l'action fait fonctionner le servlet sauthentifier
             return;
         }
+        else{
+            sc.getRequestDispatcher("/emprunter.jsp").forward(request, response);
+        }
         
         response.setContentType("text/html"); // on pourra générer ca dans le code jsp en entête
         PrintWriter p = response.getWriter();

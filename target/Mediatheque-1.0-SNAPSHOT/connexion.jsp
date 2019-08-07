@@ -21,7 +21,7 @@ and open the template in the editor.
                 <div class="col-6">
                     <h2>LECTEUR DEJA IDENTIFIE</h2>
                     <br>
-                    <form name="connexion" method="POST" action="/Mediatheque/SAuthentifier">
+                    <form name="connexion" method="POST" action="<%= application.getContextPath()%>/SAuthentifier">
                         <label for="identifiant">Identifiant
                             <input type="text" name="identifiant" size="40" />
                         </label>
@@ -36,7 +36,7 @@ and open the template in the editor.
                 <div class="col-6">
                     <h2>NOUVEAU LECTEUR</h2>
                     <br>
-                    <form name="nexlecteur" method="POST" action="/Mediatheque/SInscrire">
+                    <form name="nexlecteur" method="POST" action="<%= application.getContextPath()%>/SInscrire">
                         <label for="newidentifiant">Identifiant
                             <input type="text" name="newidentifiant" size="40" />
                         </label>
