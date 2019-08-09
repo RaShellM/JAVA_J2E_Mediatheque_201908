@@ -7,8 +7,8 @@ package com.rachelmartin.basedonnée;
 
 import com.rachelmartin.mediatheque.Catalogue;
 import com.rachelmartin.mediatheque.Catalogue;
-import com.rachelmartin.mediatheque.Media;
-import com.rachelmartin.mediatheque.Media;
+import com.rachelmartin.mediatheque.MediaMetier;
+import com.rachelmartin.mediatheque.MediaMetier;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class SendCsvInBDD extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ArrayList<Media> catBDD = Catalogue.get(getServletContext().getRealPath("/data/export.csv"));
+        ArrayList<MediaMetier> catBDD = Catalogue.get(getServletContext().getRealPath("/data/export.csv"));
         Catalogue.exportBDD(catBDD);
         getServletContext().getRequestDispatcher("/admin.jsp").forward(request,response);
     }

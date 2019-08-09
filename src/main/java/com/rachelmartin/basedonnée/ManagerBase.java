@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class ManagerBase {
 
-    static final String url = "jdbc:mysql://localhost:3306/javademo?zeroDateTimeBehavior=convertToNull&serverTimezone=Europe/Paris";
+    static final String url = "jdbc:mysql://localhost:3306/mediatheque?zeroDateTimeBehavior=convertToNull&serverTimezone=Europe/Paris";
     static final String driver = "com.mysql.jdbc.Driver";
     static final String user = "root";
     static final String password = "";

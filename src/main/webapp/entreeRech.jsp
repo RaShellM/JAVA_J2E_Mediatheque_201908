@@ -48,7 +48,7 @@
 
         
     
-         <%@include file="./pied.html" %>
+         <%@include file="./pied.jsp" %>
     </body>
     
     

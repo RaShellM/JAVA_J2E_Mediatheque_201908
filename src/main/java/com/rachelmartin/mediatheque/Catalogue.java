@@ -25,24 +25,24 @@ import java.util.logging.Logger;
  */
 public class Catalogue {
 
-    static private ArrayList<Media> c;
+    static private ArrayList<MediaMetier> c;
     
 //methode pour instruire le catalogue depuis fichier csv (fait appel à la méthode importe(param))
-    static public ArrayList<Media> get(String nomFichier) { // permet d'initialiser le catalogue s'il n'existe pas. 
-            c = new ArrayList<Media>();
+    static public ArrayList<MediaMetier> get(String nomFichier) { // permet d'initialiser le catalogue s'il n'existe pas. 
+            c = new ArrayList<MediaMetier>();
             ImporteDuCSV(nomFichier);
         return c;
     }
     
 //methode pour importer les données de DB dans Catalogue
-    static public ArrayList<Media> get() { // permet d'initialiser le catalogue s'il n'existe pas. 
-            c = new ArrayList<Media>();
+    static public ArrayList<MediaMetier> get() { // permet d'initialiser le catalogue s'il n'existe pas. 
+            c = new ArrayList<MediaMetier>();
             lireBDD();
         return c;
     }
     
 //methode pour importer le fichier .csv et lecture par ligne 
-//pour instancier dans les classes Livre et DVD et créer le ArrayList catalogue
+//pour instancier dans les classes LivreMetier et DVDMetier et créer le ArrayList catalogue
     static public void ImporteDuCSV(String nomFichier) {
         try {
             FileInputStream f = new FileInputStream(nomFichier); // racine de tomcat c::/tomcat/bin/data sur une WebApp
@@ -56,13 +56,13 @@ public class Catalogue {
                 }
 
                 try {
-                    Media m;
+                    MediaMetier m;
                     switch (e[0]) {
                         case "D":
-                            m = new DVD(e[1], e[2], Integer.parseInt(e[3].trim()));
+                            m = new DVDMetier(e[1], e[2], Integer.parseInt(e[3].trim()));
                             break;
                         case "L":
-                            m = new Livre(e[1], e[2], Integer.parseInt(e[3].trim()));
+                            m = new LivreMetier(e[1], e[2], Integer.parseInt(e[3].trim()));
                             break;
                         default:
                             continue;
@@ -84,13 +84,13 @@ public class Catalogue {
 
     }
 
-    public static void exportBDD(ArrayList<Media> catalogue) {
+    public static void exportBDD(ArrayList<MediaMetier> catalogue) {
         Connection c = ManagerBase.getManagerBase().getConnection();
         try {
             Statement stmt;
-            for (Media x : catalogue) {
+            for (MediaMetier x : catalogue) {
                 stmt = c.createStatement();
-                String requete = x.getRequete(); // methode de la class Media, qui permet
+                String requete = x.getRequete(); // methode de la class MediaMetier, qui permet
                 stmt.executeUpdate(requete);
                 stmt.close(); // pour libérer la mémoire prise sur la base de donnée
             }
@@ -101,8 +101,8 @@ public class Catalogue {
     
     public static void lireBDD() {
         //TODO ecrire les fonctinos getAll dans chaque class media livre et dvd
-        c = Livre.getAll();
-        c.addAll(DVD.getAll());
+        c = LivreMetier.getAll();
+        c.addAll(DVDMetier.getAll());
                
     }
     

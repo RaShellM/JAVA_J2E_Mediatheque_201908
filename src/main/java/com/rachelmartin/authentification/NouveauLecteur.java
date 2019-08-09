@@ -19,23 +19,27 @@ import java.util.logging.Logger;
  * @author Administrateur
  */
 public class NouveauLecteur {
-    
-    public static Boolean ajoutLecteur(String nomNew, String mdpNew) {
+
+    public static Boolean ajoutLecteur(String nomNew, String mdpNew, String sexeNew, String emailNew) {
         Connection c = ManagerBase.getManagerBase().getConnection();
         try {
+            NouveauLecteur ajout = new NouveauLecteur();
             Statement stmt = c.createStatement();
-            PreparedStatement preparedStatement = c.prepareStatement("INSERT INTO personne (nom, mdp)"
-            +"VALUES(?,?)");
+            PreparedStatement preparedStatement = c.prepareStatement("INSERT INTO personne (nom, mdp, email, sexe)"
+                    + " VALUES (?,?,?,?);");
             //entrez tout le code pour implementer la base
             preparedStatement.setString(1, nomNew);
             preparedStatement.setString(2, mdpNew);
+            preparedStatement.setString(3, emailNew);
+            preparedStatement.setString(4, sexeNew);
+
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ManagerBase.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NouveauLecteur.class.getName()).log(Level.SEVERE, null, ex);
 
         }
         return false;
     }
-    
+
 }

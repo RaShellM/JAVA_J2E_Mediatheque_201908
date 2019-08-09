@@ -1,7 +1,7 @@
 <%-- on indique la nav en .jsp pour pouvoir appeler les routages dynamiques, 
 avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig --%>
 
-<nav>
+<nav class="navbar navbar-light" style="background-color: #99334e;">
     <div class="row">
         <div class="col-3">
             <ul>
@@ -30,9 +30,14 @@ avec les méthodes getContextPath du getServletConfig lui mm du GetServletDonfig 
                     <a href="<%= application.getContextPath()%>/connexion.jsp">
                         Se connecter</a>
                 </li>
+                 <li class="bouton">
+                    <a href="<%= application.getContextPath()%>/nouveauLecteur.jsp">
+                        S'inscrire via ORM</a>
+                </li>
                  <li class="bouton"
                     style="color:black"> <%=request.getSession().getAttribute("id")%>, Vous êtes connecté
                 </li>
+                
                 <li class="bouton">
                     <a href="<%= application.getContextPath()%>/Deconnecter">
                         Se deconnecter</a>

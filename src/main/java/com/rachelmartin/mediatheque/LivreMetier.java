@@ -18,37 +18,36 @@ import java.util.logging.Logger;
  *
  * @author Administrateur
  */
-public class DVD extends Media {
+public class LivreMetier extends MediaMetier {
+private int nbPage;
 
-    private int duree;
-
-    /**
-     * Get the value of duree
-     *
-     * @return the value of duree (in seconds)
-     */
-    public int getDuree() {
-        return duree;
-    }
-
-    /**
-     * Set the value of duree
-     *
-     * @param duree new value of duree in seconds)
-     */
-    public void setDuree(int duree) {
-        this.duree = duree;
-    }
-
-    public DVD(String Titre, String Auteur, int duree) throws Exception {
+    public LivreMetier(String Titre, String Auteur, int nbPage) throws Exception {
         super(Titre, Auteur);
-        setDuree(duree);
+        setNbPage(nbPage);
+    }
+
+    /**
+     * Get the value of nbPage
+     *
+     * @return the value of nbPage
+     */
+    public int getNbPage() {
+        return nbPage;
+    }
+
+    /**
+     * Set the value of nbPage
+     *
+     * @param nbPage new value of nbPage
+     */
+    public void setNbPage(int nbPage) {
+        this.nbPage = nbPage;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 47 * hash + this.duree;
+        hash = 53 * hash + this.nbPage;
         return hash;
     }
 
@@ -63,62 +62,62 @@ public class DVD extends Media {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final DVD other = (DVD) obj;
-        if (this.duree != other.duree) {
+        final LivreMetier other = (LivreMetier) obj;
+        if (this.nbPage != other.nbPage) {
             return false;
         }
         return super.equals(obj);
     }
+        @Override
+    public String toString() {
+        return super.toString() +" : Livre{" +  "nbPage=" + nbPage + '}';
+    }
 
     @Override
-    public String toString() {
-        return super.toString() +" : DVD{" +  "duree=" + duree + "}";
-    }
-        @Override
     public void enregistre(PrintStream p) {
-        StringBuilder sb = new StringBuilder("D");
+        StringBuilder sb = new StringBuilder("L");
         sb.append(";");
         sb.append(getTitre());
         sb.append(";");
         sb.append(getAuteur());
         sb.append(";");
-        sb.append(getDuree());
+        sb.append(nbPage);
         p.println(sb.toString());
     }
-    
-        @Override // implements de la methode getRequete de Media
+
+    @Override // implements de la methode getRequete de MediaMetier
+    //notre methode pour construire la requete MySQL de UPDATE des data sur la BDD distante
     public String getRequete() {
         // TODO mettre le nom de la table en paramètre
-       StringBuilder sb = new StringBuilder("INSERT INTO dvd (titre, auteur, duree)");
+       StringBuilder sb = new StringBuilder("INSERT INTO livre (titre, auteur, nbpages)");
        sb.append(" VALUES ('");
        sb.append(getTitre());
        sb.append("','");
        sb.append(getAuteur());
        sb.append("','");
-       sb.append(duree);
+       sb.append(getNbPage());
        sb.append("')");
        return sb.toString();
     }
-    public static ArrayList<Media> getAll(){
-      ArrayList<Media> catalogue = new ArrayList();
+    public static ArrayList<MediaMetier> getAll(){
+      ArrayList<MediaMetier> catalogue = new ArrayList();
     try {
         Connection c = ManagerBase.getManagerBase().getConnection();
         Statement st = c.createStatement();
-        String requete = "SELECT titre, auteur, duree from dvd";
+        String requete = "SELECT titre, auteur, nbpages from Livre";
         ResultSet reponse = st.executeQuery(requete);
         while (reponse.next()){
             
             try {
-                DVD d = new DVD(reponse.getString("titre"), reponse.getString("auteur"), reponse.getInt("duree"));
-                catalogue.add(d);
+                LivreMetier l = new LivreMetier(reponse.getString("titre"), reponse.getString("auteur"), reponse.getInt("nbpages"));
+                catalogue.add(l);
             } catch (Exception ex) {
-                Logger.getLogger(Livre.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(LivreMetier.class.getName()).log(Level.SEVERE, null, ex);
             }    
         }
     } catch (SQLException ex) {
-        Logger.getLogger(Livre.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(LivreMetier.class.getName()).log(Level.SEVERE, null, ex);
     }
     return catalogue;
     }
 }
-

@@ -10,9 +10,12 @@ and open the template in the editor.
         <title>Page d'identifiation</title>
 
     </head>
-
+       
 
     <body>
+        
+         <%@include file="./nav.jsp" %>
+         
         <div class="container">
 
             <div class="row">Page d'identifiation</div>
@@ -29,6 +32,8 @@ and open the template in the editor.
                         <label for="mdp">Mot de passe
                             <input type="password" name="mdp" size="40" />
                         </label>
+
+                        
                         <input type="submit" value="s'authentifier" />
                     </form>
                 </div>
@@ -44,12 +49,25 @@ and open the template in the editor.
                         <label for="newmdp">Mot de passe
                             <input type="password" name="newmdp" size="40" />
                         </label>
+<br>
+                        <label for="age">Votre age 
+                            <input type="text" name="newage" size="3" />
+                        </label>
+<br>                     
+                        <label for="email">Votre email
+                         <input type="text" name="newemail" size="40" />
+                        </label>
+<br>                     
+                        <label for="sexe">Genre (F pour Femme ou H pour Homme)
+                         <input type="text" name="newsexe" size="40" />
+                        </label>          
+                        
                         <input type="submit" value="s'inscrire" /> <!--le value donne juste le nom du bouton-->
                     </form>
                 </div>
             </div>
         </div>
-        <%@include file="pied.html" %>
+        <%@include file="./pied.jsp" %>
 
 
 

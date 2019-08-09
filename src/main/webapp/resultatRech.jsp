@@ -62,7 +62,7 @@
             <%out.print(request.getParameter("typeform"));%>
         <hr>
 
-        <%@include file="pied.html" %>
+        <%@include file="pied.jsp" %>
     </body>
 
 

@@ -38,12 +38,12 @@ public class FiltrerCatalogue extends HttpServlet {
 // Catalogue.get = méthode qui instancie l'array liste et fait l'importe
 // nouvelle array liste de classe media
 //servletcontexte donne l'info sur l'environnement de l'app web 
-      ArrayList<Media> resultatFiltre = Catalogue.get();//syntaxe de navigation web qui donner le nom effectif de l'endroit de stockage du .csv
+      ArrayList<MediaMetier> resultatFiltre = Catalogue.get();//syntaxe de navigation web qui donner le nom effectif de l'endroit de stockage du .csv
 
         // on ajoute les résultats de notre recherche dans une nouvelle ArrayList  
         if (r.getTitre().trim().length() != 0) { // faire la recherche par titre seulement si l'auteur n'est pas renseigné
-            ArrayList<Media> filtreSurTitreDansCatalogue = new ArrayList<Media>();
-            for (Media x : resultatFiltre) {
+            ArrayList<MediaMetier> filtreSurTitreDansCatalogue = new ArrayList<MediaMetier>();
+            for (MediaMetier x : resultatFiltre) {
                 if (x.getTitre().trim().equalsIgnoreCase(r.getTitre().trim())) {
                     filtreSurTitreDansCatalogue.add(x);
                 }
@@ -52,8 +52,8 @@ public class FiltrerCatalogue extends HttpServlet {
         }
 
         if (r.getAuteur().trim().length() != 0) { // faire la recherche par auteur seulement si l'auteur n'est pas renseigné
-            ArrayList<Media> filtreSurAuteurDansCatalogue = new ArrayList<Media>();
-            for (Media x : resultatFiltre) {
+            ArrayList<MediaMetier> filtreSurAuteurDansCatalogue = new ArrayList<MediaMetier>();
+            for (MediaMetier x : resultatFiltre) {
                 if (x.getAuteur().trim().equalsIgnoreCase(r.getAuteur().trim())) {
                     filtreSurAuteurDansCatalogue.add(x);
                 }
@@ -63,7 +63,7 @@ public class FiltrerCatalogue extends HttpServlet {
 
 // pour afficher le résultat -> la methode Filtrer Catalogue est appelée dans la page resultatRech.jsp (intégration par <jsp:include page="
         PrintWriter sortie = response.getWriter();
-        //for (Media x : ResultatFiltre){
+        //for (MediaMetier x : ResultatFiltre){
         // sortie.println(x.getAuteur()+" "+ x.getTitre() +"<br>");
         // }
 // le nom de l'attribut qu'on peut récupérer apres sur un jsp par un getAttribute associé au resultat du filtre

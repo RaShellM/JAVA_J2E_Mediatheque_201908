@@ -16,11 +16,11 @@
     </head>
     <body>
        
-        <%@include file="nav.jsp" %>
+        <%@include file="./nav.jsp" %>
         
         
          <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"  
-                           url="jdbc:mysql://localhost:3306/javademo?zeroDateTimeBehavior=convertToNull&serverTimezone=Europe/Paris"  
+                           url="jdbc:mysql://localhost:3306/mediatheque?zeroDateTimeBehavior=convertToNull&serverTimezone=Europe/Paris"  
                            user="root"  password=""/> 
         <h1>consultation MEDIA </h1>
            
@@ -40,7 +40,7 @@
         </table>
        </div>
             
-       <%@include file="pied.html" %>
+       <%@include file="./pied.jsp" %>
        
        
        

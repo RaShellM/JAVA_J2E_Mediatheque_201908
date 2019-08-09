@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Administrateur
  */
-abstract public class Media {
+abstract public class MediaMetier {
    
     private String Titre;
 
@@ -61,7 +61,7 @@ abstract public class Media {
         this.Auteur = Auteur.trim();
     }
 
-    public Media(String Titre, String Auteur) throws Exception {
+    public MediaMetier(String Titre, String Auteur) throws Exception {
         setAuteur(Auteur);
         setTitre(Titre);
     }
@@ -85,7 +85,7 @@ abstract public class Media {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Media other = (Media) obj;
+        final MediaMetier other = (MediaMetier) obj;
         if (!Objects.equals(this.Titre, other.Titre)) {
             return false;
         }

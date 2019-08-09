@@ -53,13 +53,17 @@ ServletContext sc;
         
         HttpSession session = request.getSession(true); // on récupere une session ou si elle n'existe pas on la crée
         
-        String newidSaisi = request.getParameter("newidentifiant");//champ name de  l'input
+        String newNomSaisi = request.getParameter("newidentifiant");//champ name de  l'input
         String newmdpSaisi = request.getParameter("newmdp");
+        // String newAgeSaisi = request.getParameter("newage");
+       // int newAgeDB = Integer.parseInt(newAgeSaisi);
+        String newEmailSaisi = request.getParameter("newemail");
+        String newsexeSaisi = request.getParameter("newsexe");
         
 //controle de validité du login et mot de passe
-        if (newidSaisi !=null && newmdpSaisi !=null){
-            NouveauLecteur.ajoutLecteur(newidSaisi, newmdpSaisi);
-            session.setAttribute("id", newidSaisi); // définition de la cession de l'utilisateur avec un attribut ID
+        if (newNomSaisi !=null && newmdpSaisi !=null){
+            NouveauLecteur.ajoutLecteur(newNomSaisi, newmdpSaisi, newEmailSaisi, newsexeSaisi);
+            session.setAttribute("id", newNomSaisi); // définition de la cession de l'utilisateur avec un attribut ID
             response.sendRedirect(sc.getContextPath()+"/Emprunter");
             return; // met fin au code doPost si le code effectue le if
             }
